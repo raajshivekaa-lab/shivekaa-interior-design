@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>HAVEN — Interior Design Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <!-- LINK TO CSS -->
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <div class="ambient"></div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar" id="topBar" style="display:none">
+        <div class="logo">SHIVEKAA INTERNATIONAL</div>
+        <div class="step-bar" id="stepBar" style="display:none">
+            <div class="si" id="si1"><div class="sn">1</div><span>Package</span></div>
+            <div class="ss"></div><div class="si" id="si2"><div class="sn">2</div><span>Rooms</span></div>
+            <div class="ss"></div><div class="si" id="si3"><div class="sn">3</div><span>Design</span></div>
+            <div class="ss"></div><div class="si" id="si4"><div class="sn">4</div><span>Summary</span></div>
+        </div>
+        <div class="pkg-badge" id="pkgBadge">—</div>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div id="pgBar">
+        <div class="pg-r1"><span class="pg-lbl" id="pgLbl">Design Journey</span><span class="pg-pct" id="pgPct">0%</span></div>
+        <div class="pg-track"><div class="pg-fill" id="pgFill"></div></div>
+        <div class="pg-steps" id="pgSteps"></div>
+    </div>
+
+    <!-- SCREEN 1: ENTRY -->
+    <div class="screen active" id="s-entry" style="padding-top:0">
+        <div class="inner fade-in d1">
+            <div class="entry-label">Interior Design Studio · Est. 2019</div>
+            <h1 class="entry-title">SMART FURNITURE<br><em>FOR SMART HOME</em></h1>
+            <p class="entry-sub">Explore curated luxury interior packages crafted for your lifestyle and vision</p>
+            <div class="eform">
+                <div><label class="fl">Full Name</label><input class="fi" id="inp-name" placeholder="Your full name" type="text"/><div class="em" id="err-name">Please enter your name</div></div>
+                <div><label class="fl">Mobile Number</label><input class="fi" id="inp-phone" placeholder="+91 00000 00000" type="tel"/><div class="em" id="err-phone">Please enter your mobile number</div></div>
+                <button class="btn-g" onclick="startDesigning()" style="margin-top:5px">Start Designing →</button>
+                <div class="div-r"><div class="div-l"></div><span class="div-t">No commitment required</span><div class="div-l"></div></div>
+            </div>
+            <div class="trust">
+                <div class="ti"><div class="tn">500+</div><div class="tl">Homes Designed</div></div>
+                <div class="ts"></div>
+                <div class="ti"><div class="tn">5★</div><div class="tl">Rating</div></div>
+            </div>
+        </div>
+        <div class="cf"><div class="cf-in"><div class="cf-logo">SHIVEKAA INTERNATIONAL</div><div class="cf-links">
+            <a class="cfl" href="mailto:shivekaa.international@gmail.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>www.shivekaa.com</a>
+            <a class="cfl" href="https://wa.me/9099165606" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+            <a class="cfl" href="https://www.instagram.com/shivekaa__international/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            <a class="cfl" href="https://www.shivekaa.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Website</a>
+        </div></div></div>
+    </div>
+
+    <!-- SCREEN 2: RESIDENCE -->
+    <div class="screen" id="s-residence">
+        <div class="nb fade-in d1" onclick="goTo('s-entry')">← Back</div>
+        <div class="sp fade-in d2">
+            <div class="eyebrow">Step 1 of 2 — Property Profile</div>
+            <h2 class="ptitle">What kind of<br><em>Residence?</em></h2>
+            <p style="font-size:12px;color:var(--t3);line-height:1.75;max-width:440px;margin-bottom:26px">Tell us about your property so we can recommend the best packages for you.</p>
+            <div class="res-grid" id="resGrid">
+                <button class="rb" data-val="Apartment / Flat" onclick="selRes(this)">🏢 Apartment / Flat</button>
+                <button class="rb" data-val="Villa" onclick="selRes(this)">🏡 Villa</button>
+                <button class="rb" data-val="Bungalow" onclick="selRes(this)">🏠 Bungalow</button>
+                <button class="rb" data-val="Penthouse" onclick="selRes(this)">🌆 Penthouse</button>
+                <button class="rb" data-val="Studio Apartment" onclick="selRes(this)">🏙 Studio Apartment</button>
+                <button class="rb" data-val="Duplex" onclick="selRes(this)">🏗 Duplex</button>
+                <button class="rb" data-val="Row House" onclick="selRes(this)">🏘 Row House</button>
+                <button class="rb" data-val="Other" onclick="selRes(this)">✦ Other</button>
+            </div>
+            <div id="resSel" style="display:none;margin-bottom:22px;padding:12px 18px;border:.5px solid rgba(201,169,110,.22);background:rgba(201,169,110,.04);align-items:center;gap:10px;">
+                <span style="font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:rgba(201,169,110,.45)">Selected</span>
+                <span id="resSelName" style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:300;color:var(--text)">—</span>
+            </div>
+            <div style="display:flex;gap:11px;align-items:center;flex-wrap:wrap">
+                <button class="btn-g" id="resContinue" style="opacity:.3;pointer-events:none" onclick="goTo('s-bhk')">Continue →</button>
+                <span style="font-size:10px;color:var(--t3)" id="resHint">Select your residence type</span>
+            </div>
+        </div>
+        <div class="cf"><div class="cf-in"><div class="cf-logo">SHIVEKAA INTERNATIONAL</div><div class="cf-links">
+            <a class="cfl" href="mailto:shivekaa.international@gmail.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>www.shivekaa.com</a>
+            <a class="cfl" href="https://wa.me/9099165606" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+            <a class="cfl" href="https://www.instagram.com/shivekaa__international/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            <a class="cfl" href="https://www.shivekaa.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Website</a>
+        </div></div></div>
+    </div>
+
+    <!-- SCREEN 3: BHK -->
+    <div class="screen" id="s-bhk">
+        <div class="nb fade-in d1" onclick="goTo('s-residence')">← Back</div>
+        <div class="sp fade-in d2">
+            <div class="eyebrow">Step 2 of 2 — Property Configuration</div>
+            <h2 class="ptitle">BHK &amp; Area<br><em>Details</em></h2>
+            <div style="margin-bottom:28px">
+                <div class="sec-lbl">BHK Configuration</div>
+                <div class="bhk-grid" id="bhkGrid">
+                    <button class="bhkb" data-val="1 BHK" onclick="selBHK(this)">1 BHK</button>
+                    <button class="bhkb" data-val="2 BHK" onclick="selBHK(this)">2 BHK</button>
+                    <button class="bhkb" data-val="3 BHK" onclick="selBHK(this)">3 BHK</button>
+                    <button class="bhkb" data-val="4 BHK" onclick="selBHK(this)">4 BHK</button>
+                    <button class="bhkb" data-val="5 BHK" onclick="selBHK(this)">5 BHK</button>
+                    <button class="bhkb" data-val="5+ BHK" onclick="selBHK(this)">5+ BHK</button>
+                    <button class="bhkb" data-val="Other" onclick="selBHK(this)">Other</button>
+                </div>
+            </div>
+            <div style="margin-bottom:28px">
+                <div class="sec-lbl">Property Area</div>
+                <div class="area-row">
+                    <div style="position:relative">
+                        <select class="asel" id="areaType"><option>Carpet Area</option><option>Super Built-Up</option></select>
+                        <div style="position:absolute;right:10px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:10px;color:var(--gold)">▾</div>
+                    </div>
+                    <div class="unit-tog">
+                        <button class="ub active" id="usqft" onclick="switchUnit('sqft',this)">sq ft</button>
+                        <button class="ub" id="usqm" onclick="switchUnit('sqm',this)">sq m</button>
+                    </div>
+                    <div style="display:flex;align-items:baseline;gap:5px">
+                        <span class="aval" id="aVal">500</span>
+                        <span class="aunit" id="aUnit">sq ft</span>
+                    </div>
+                </div>
+                <div class="range-wrap">
+                    <div class="range-labs"><span id="rMin">0 sq ft</span><span id="rMax">10,000 sq ft</span></div>
+                    <input type="range" id="aRange" min="0" max="10000" step="50" value="500" oninput="updateArea(this.value)"/>
+                    <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:9px;color:var(--t3)">
+                        <span>Small Studio</span><span>Mid-size Home</span><span>Luxury Estate</span>
+                    </div>
+                </div>
+                <div class="area-band" id="areaBand">Area: <strong id="aInfo" style="color:var(--gold);font-weight:400">500 sq ft</strong> — <span id="aCat">Cozy Apartment</span></div>
+            </div>
+            <div id="cfgSummary" style="display:none;margin-bottom:22px">
+                <div class="sec-lbl" style="margin-bottom:9px">Your Configuration</div>
+                <div class="cfg-chips" id="cfgChips"></div>
+            </div>
+            <div style="display:flex;gap:11px;align-items:center;flex-wrap:wrap">
+                <button class="btn-g" id="bhkContinue" style="opacity:.3;pointer-events:none" onclick="proceedDash()">Continue to Dashboard →</button>
+                <button class="btn-gh" onclick="goTo('s-residence')">← Change Residence</button>
+                <span style="font-size:10px;color:var(--t3)" id="bhkHint">Select BHK configuration</span>
+            </div>
+        </div>
+        <div class="cf"><div class="cf-in"><div class="cf-logo">SHIVEKAA INTERNATIONAL</div><div class="cf-links">
+            <a class="cfl" href="mailto:shivekaa.international@gmail.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>www.shivekaa.com</a>
+            <a class="cfl" href="https://wa.me/9099165606" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+            <a class="cfl" href="https://www.instagram.com/shivekaa__international/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            <a class="cfl" href="https://www.shivekaa.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Website</a>
+        </div></div></div>
+    </div>
+
+    <!-- SCREEN 4: DASHBOARD -->
+    <div class="screen" id="s-dash">
+        <div class="dash-hd fade-in d1"><div class="dash-ttl">My Design Options</div><div class="dash-sub" id="dashSub">Your saved interior explorations</div></div>
+        <div class="pw"><span class="pl" id="progLbl">Options: 0 / 5</span><div class="pt"><div class="pf" id="progFill" style="width:0%"></div></div></div>
+        <div class="wb" id="warnBanner">You're close to your limit — only 1 option remaining</div>
+        <div class="og fade-in d2" id="optGrid"></div>
+        <div class="dc">
+            <button class="nb2" id="newBtn" onclick="startNewOption()"><span style="font-size:17px;line-height:1">+</span> Create New Option</button>
+            <div class="lm" id="limitMsg">Maximum 5 design options reached</div>
+        </div>
+        <div class="cf"><div class="cf-in"><div class="cf-logo">SHIVEKAA INTERNATIONAL</div><div class="cf-links">
+            <a class="cfl" href="mailto:shivekaa.international@gmail.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>www.shivekaa.com</a>
+            <a class="cfl" href="https://wa.me/9099165606" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+            <a class="cfl" href="https://www.instagram.com/shivekaa__international/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            <a class="cfl" href="https://www.shivekaa.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Website</a>
+        </div></div></div>
+    </div>
+
+    <!-- SCREEN 5: PACKAGE -->
+    <div class="screen" id="s-package">
+        <div class="nb fade-in d1" onclick="goTo('s-dash')">← Dashboard</div>
+        <div class="sp fade-in d2">
+            <div class="eyebrow">Step 1 of 4 — Package Selection</div>
+            <h2 class="ptitle">Choose Your<br><em>Collection</em></h2>
+            <div class="pkg-grid">
+                <div class="pkc" id="pc-Silver" onclick="selPkg('Silver','5','Essential Collection')">
+                    <div class="ptier">Essential Collection</div><div class="pname">Budget-Friendly</div><div class="pprice">₹5 Lakhs</div>
+                    <div class="phr"></div><p class="pdesc">Thoughtfully curated essentials for a beautiful, functional home.</p>
+                    <ul class="pfts"><li>Budget-friendly finishes</li><li>Essential furniture sets</li><li>3 room design variants</li><li>Standard material palette</li></ul>
+                    <button class="btn-o" style="width:100%;pointer-events:none">Select Silver</button>
+                </div>
+                <div class="pkc" id="pc-Gold" onclick="selPkg('Gold','10','Premium Collection')">
+                    <div class="pop-tag">Most Selected</div>
+                    <div class="ptier">Premium Collection</div><div class="pname">Economy</div><div class="pprice">₹10 Lakhs</div>
+                    <div class="phr"></div><p class="pdesc">Premium finishes with superior materials and curated aesthetics.</p>
+                    <ul class="pfts"><li>Premium wood &amp; natural stone</li><li>Designer furniture sets</li><li>6 room design variants</li><li>Dedicated design consultant</li></ul>
+                    <button class="btn-g" style="width:100%;pointer-events:none">Select Gold</button>
+                </div>
+                <div class="pkc" id="pc-Platinum" onclick="selPkg('Platinum','15','Haute Collection')">
+                    <div class="ptier">Haute Collection</div><div class="pname">Prime</div><div class="pprice">₹15 Lakhs</div>
+                    <div class="phr"></div><p class="pdesc">Bespoke luxury interiors with finest imported materials.</p>
+                    <ul class="pfts"><li>Italian marble &amp; exotic wood</li><li>Bespoke handcrafted furniture</li><li>9 room design variants</li><li>White-glove project management</li></ul>
+                    <button class="btn-o" style="width:100%;pointer-events:none">Select Platinum</button>
+                </div>
+            </div>
+            <div class="ups" id="upsell"><span style="opacity:.7">✦</span><span>Upgrade to <strong style="color:var(--gold);font-weight:400">Gold</strong> for premium finishes — only ₹5L more</span><span class="ups-cta" onclick="selPkg('Gold','10','Premium Collection')">Upgrade →</span></div>
+        </div>
+        <div class="cf"><div class="cf-in"><div class="cf-logo">SHIVEKAA INTERNATIONAL</div><div class="cf-links">
+            <a class="cfl" href="mailto:shivekaa.international@gmail.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>www.shivekaa.com</a>
+            <a class="cfl" href="https://wa.me/9099165606" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+            <a class="cfl" href="https://www.instagram.com/shivekaa__international/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            <a class="cfl" href="https://www.shivekaa.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Website</a>
+        </div></div></div>
+    </div>
+
+    <!-- SCREEN 6: ROOMS -->
+    <div class="screen" id="s-rooms">
+        <div class="nb fade-in d1" onclick="goTo('s-package')">← Back</div>
+        <div class="sp fade-in d2">
+            <div class="eyebrow">Step 2 of 4 — Room Selection</div>
+            <h2 class="ptitle">Which Rooms to <em>Transform?</em></h2>
+            <div class="rg">
+                <div class="rc" id="rcard-Bedroom" onclick="toggleRoom('Bedroom')">
+                    <div class="rv" style="background:linear-gradient(160deg,#281e14,#100c08)"><div class="re">🛏</div><div class="rchk" id="rchk-Bedroom">✓</div><span style="position:absolute;bottom:7px;left:9px;font-size:7px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;background:rgba(12,11,9,.7);color:var(--t3);border:.5px solid rgba(232,224,208,.08)">3 designs</span></div>
+                    <div class="ri"><div class="rn">Bedroom</div><div class="rs">Rest &amp; Retreat</div><div class="rf">Wardrobe &amp; storage design</div><div class="rf">Bed frame &amp; headboard</div><div class="rf">Ambient lighting plan</div></div>
+                </div>
+                <div class="rc" id="rcard-Kitchen" onclick="toggleRoom('Kitchen')">
+                    <div class="rv" style="background:linear-gradient(160deg,#141c1e,#0a1012)"><div class="re">🍳</div><div class="rchk" id="rchk-Kitchen">✓</div><span style="position:absolute;bottom:7px;left:9px;font-size:7px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;background:rgba(12,11,9,.7);color:var(--t3);border:.5px solid rgba(232,224,208,.08)">3 designs</span></div>
+                    <div class="ri"><div class="rn">Kitchen</div><div class="rs">Culinary Space</div><div class="rf">Cabinet &amp; countertop layout</div><div class="rf">Appliance placement</div><div class="rf">Backsplash &amp; finish</div></div>
+                </div>
+                <div class="rc" id="rcard-Living Room" onclick="toggleRoom('Living Room')">
+                    <div class="rv" style="background:linear-gradient(160deg,#1c1623,#100c18)"><div class="re">🛋</div><div class="rchk" id="rchk-Living Room">✓</div><span style="position:absolute;bottom:7px;left:9px;font-size:7px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;background:rgba(12,11,9,.7);color:var(--t3);border:.5px solid rgba(232,224,208,.08)">3 designs</span></div>
+                    <div class="ri"><div class="rn">Living Room</div><div class="rs">Social Hub</div><div class="rf">Sofa &amp; seating arrangement</div><div class="rf">TV unit &amp; shelving</div><div class="rf">Focal wall treatment</div></div>
+                </div>
+            </div>
+            <div class="sbar" id="selBar"><span class="sbl">Selected</span><div class="stags" id="selTags"><span class="semp">No rooms chosen yet</span></div></div>
+            <div style="margin-top:18px;display:flex;gap:11px;align-items:center;flex-wrap:wrap" class="fade-in d4">
+                <button class="btn-g" id="roomContinue" style="opacity:.3;pointer-events:none" onclick="proceedDesigns()">Continue to Designs →</button>
+                <button class="btn-gh" onclick="goTo('s-package')">← Change Package</button>
+                <span style="font-size:10px;color:var(--t3)" id="roomHint">Select at least one room</span>
+            </div>
+        </div>
+        <div class="cf"><div class="cf-in"><div class="cf-logo">SHIVEKAA INTERNATIONAL</div><div class="cf-links">
+            <a class="cfl" href="mailto:shivekaa.international@gmail.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>www.shivekaa.com</a>
+            <a class="cfl" href="https://wa.me/9099165606" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+            <a class="cfl" href="https://www.instagram.com/shivekaa__international/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            <a class="cfl" href="https://www.shivekaa.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Website</a>
+        </div></div></div>
+    </div>
+
+    <!-- SCREEN 7: MODELS -->
+    <div class="screen" id="s-models">
+        <div class="nb fade-in d1" onclick="goTo('s-rooms')">← Back</div>
+        <div class="sp fade-in d2">
+            <div class="eyebrow">Step 3 of 4 — Design Models</div>
+            <h2 class="ptitle">Pick Your <em>Signature Style</em></h2>
+            <div class="pills" id="filterPills"></div>
+            <div style="font-size:10px;color:var(--t3);letter-spacing:.04em;margin-bottom:14px" id="resCount"></div>
+            <div class="mg" id="modelGrid"></div>
+            <div class="sdb" id="selDesignBar"><span class="sdbl">Added to option</span><span class="rc2" id="sdbTxt">No design selected yet</span></div>
+            <div style="margin-top:14px;display:flex;gap:11px;flex-wrap:wrap">
+                <button class="btn-g" id="modelProceed" style="opacity:.3;pointer-events:none" onclick="goToSummary()">Review Summary →</button>
+                <button class="btn-gh" onclick="goTo('s-rooms')">← Rooms</button>
+                <span style="font-size:10px;color:var(--t3)" id="modelHint">Select a design to continue</span>
+            </div>
+        </div>
+        <div class="cf"><div class="cf-in"><div class="cf-logo">SHIVEKAA INTERNATIONAL</div><div class="cf-links">
+            <a class="cfl" href="mailto:shivekaa.international@gmail.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>www.shivekaa.com</a>
+            <a class="cfl" href="https://wa.me/9099165606" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+            <a class="cfl" href="https://www.instagram.com/shivekaa__international/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            <a class="cfl" href="https://www.shivekaa.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Website</a>
+        </div></div></div>
+    </div>
+
+    <!-- SCREEN 8: 3D VIEWER -->
+    <div class="screen" id="s-viewer">
+        <div class="nb" onclick="goTo('s-models')">← Back to Designs</div>
+        <div class="vs" id="viewStage">
+            <div class="vr" style="width:270px;height:270px"></div>
+            <div class="vr" style="width:190px;height:190px;border-style:dashed;opacity:.5"></div>
+            <svg id="roomSvg" width="420" height="280" viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="210,180 370,100 210,20 50,100" fill="#1a1610"/>
+                <line x1="130" y1="140" x2="290" y2="60" stroke="rgba(201,169,110,0.12)" stroke-width=".5"/>
+                <line x1="155" y1="155" x2="315" y2="75" stroke="rgba(201,169,110,0.08)" stroke-width=".5"/>
+                <line x1="180" y1="170" x2="340" y2="90" stroke="rgba(201,169,110,0.07)" stroke-width=".5"/>
+                <polygon points="50,100 50,220 210,300 210,180" fill="#131210"/>
+                <line x1="50" y1="140" x2="210" y2="220" stroke="rgba(255,255,255,0.02)" stroke-width=".5"/>
+                <polygon points="370,100 370,220 210,300 210,180" fill="#0f0e0c"/>
+                <polygon points="80,155 155,115 170,155 95,195" fill="#2a2218"/>
+                <polygon points="80,155 80,148 155,108 155,115" fill="#332b1e"/>
+                <polygon points="83,152 152,114 152,108 83,146" fill="#e8e0d0" opacity=".85"/>
+                <polygon points="86,142 104,133 104,128 86,137" fill="#f5f0e8" opacity=".9"/>
+                <polygon points="108,131 126,122 126,117 108,126" fill="#f0ebe3" opacity=".85"/>
+                <polygon points="80,148 155,108 155,90 80,130" fill="#221e12"/>
+                <polygon points="82,146 153,107 153,92 82,131" fill="#251f14"/>
+                <line x1="96" y1="140" x2="96" y2="95" stroke="rgba(201,169,110,0.1)" stroke-width=".5"/>
+                <line x1="112" y1="132" x2="112" y2="89" stroke="rgba(201,169,110,0.08)" stroke-width=".5"/>
+                <polygon points="60,100 115,70 115,30 60,60" fill="#1c1810"/>
+                <polygon points="60,100 60,60 115,30 115,70" fill="#221e12"/>
+                <polygon points="60,60 115,30 140,42 85,72" fill="#2a2418"/>
+                <line x1="87" y1="99" x2="87" y2="62" stroke="rgba(201,169,110,0.15)" stroke-width=".5"/>
+                <circle cx="87" cy="80" r="1.5" fill="rgba(201,169,110,0.5)"/>
+                <polygon points="255,165 335,125 345,148 265,188" fill="#2a2418"/>
+                <polygon points="255,165 255,148 335,108 335,125" fill="#332b1e"/>
+                <polygon points="258,162 278,152 278,140 258,150" fill="#3d3428"/>
+                <polygon points="281,152 301,142 301,130 281,140" fill="#3d3428"/>
+                <polygon points="304,142 324,132 324,120 304,130" fill="#3d3428"/>
+                <polygon points="338,100 355,92 355,220 338,228" fill="#c8c0b0" opacity=".07"/>
+                <polygon points="265,205 310,183 318,196 273,218" fill="#201c10"/>
+                <polygon points="265,200 310,178 322,184 277,206" fill="#1e1a0e"/>
+                <ellipse cx="210" cy="120" rx="80" ry="40" fill="rgba(201,169,110,0.025)"/>
+            </svg>
+            <div class="vtog"><button class="vtb active" onclick="switchView('bed',this)">Bedroom</button><button class="vtb" onclick="switchView('liv',this)">Living</button></div>
+            <div class="zbts"><button class="zb" onclick="doZoom(.12)">+</button><button class="zb" onclick="doZoom(-.12)">−</button></div>
+            <div class="ch"><span>⟳ Drag to rotate</span><span>⊕ Scroll to zoom</span></div>
+        </div>
+        <div class="vband fade-in d1" id="vBand">
+            <div><div style="font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,169,110,.5);margin-bottom:4px">Viewing Design</div><div class="vn" id="vName">—</div><div class="vst" id="vStyle">—</div></div>
+            <div class="vrms" id="vRooms"></div>
+        </div>
+        <div class="dg fade-in d2" id="vDetails"></div>
+        <div class="vcta fade-in d3">
+            <button class="btn-g" onclick="addViewerModel()">Add to Option</button>
+            <button class="btn-gh" onclick="goTo('s-models')">Back</button>
+        </div>
+        <div class="cf"><div class="cf-in"><div class="cf-logo">SHIVEKAA INTERNATIONAL</div><div class="cf-links">
+            <a class="cfl" href="mailto:shivekaa.international@gmail.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>www.shivekaa.com</a>
+            <a class="cfl" href="https://wa.me/9099165606" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+            <a class="cfl" href="https://www.instagram.com/shivekaa__international/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            <a class="cfl" href="https://www.shivekaa.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Website</a>
+        </div></div></div>
+    </div>
+
+    <!-- SCREEN 9: SUMMARY -->
+    <div class="screen" id="s-summary">
+        <div class="sl">
+            <div class="slft">
+                <div class="nb fade-in d1" style="padding:0 0 14px" onclick="goTo('s-models')">← Back</div>
+                <div class="eyebrow fade-in d1">Step 4 of 4 — Design Summary</div>
+                <h2 class="ptitle fade-in d2">Your Option at a <em>Glance</em></h2>
+                <div class="onc fade-in d3"><div><div class="oncl">Option Name</div><div class="oncn" id="sumOptName">—</div></div><span class="oncr" onclick="regenName()">Regenerate ↺</span></div>
+                <div class="sr fade-in d3"><div class="sb"><div class="sl2">Package</div><div class="sv" id="sumPkg">—</div><div class="ssub" id="sumCol">—</div><span class="sc" onclick="goTo('s-package')">Change</span></div><div class="sb"><div class="sl2">Estimate</div><div class="sp2" id="sumPrice">—</div><div class="ssub">Base package</div></div></div>
+                <div class="rrow fade-in d3" id="sumRooms"></div>
+                <div class="dcard fade-in d4" id="sumDesign"><div style="padding:22px;text-align:center;color:var(--t3);font-style:italic;font-size:12px">No design selected yet</div></div>
+                <div class="ssucc" id="saveSuc"><div class="sst">✦ Design option saved</div><div class="ssn" id="savedName">—</div></div>
+                <div class="ctas fade-in d5">
+                    <button class="btn-g" id="saveBtn" onclick="saveOption()">Save as Design Option</button>
+                    <button class="btn-o" onclick="goTo('s-inquiry')">Proceed to Consultation →</button>
+                    <button class="btn-gh" onclick="goTo('s-models')">← Browse More Designs</button>
+                </div>
+            </div>
+            <div class="srgt fade-in d3">
+                <div class="rpe">Design Preview</div>
+                <div class="msc"><svg width="300" height="155" viewBox="0 0 300 155" xmlns="http://www.w3.org/2000/svg"><polygon points="150,115 260,60 150,5 40,60" fill="#1a1610"/><line x1="85" y1="87" x2="205" y2="32" stroke="rgba(201,169,110,0.1)" stroke-width=".5"/><polygon points="40,60 40,150 150,205 150,115" fill="#131210"/><polygon points="260,60 260,150 150,205 150,115" fill="#0f0e0c"/><polygon points="55,100 108,73 118,95 65,122" fill="#2a2218"/><polygon points="55,100 55,94 108,67 108,73" fill="#332b1e"/><polygon points="57,98 106,71 106,66 57,93" fill="#e8e0d0" opacity=".8"/><polygon points="55,94 108,67 108,53 55,80" fill="#221e12"/><polygon points="43,60 82,40 82,17 43,37" fill="#1c1810"/><polygon points="43,60 43,37 82,17 82,40" fill="#221e12"/><polygon points="172,113 232,83 240,102 180,132" fill="#2a2418"/><polygon points="172,113 172,101 232,71 232,83" fill="#332b1e"/><polygon points="238,60 248,55 248,150 238,155" fill="#c8c0b0" opacity=".06"/><ellipse cx="150" cy="83" rx="55" ry="26" fill="rgba(201,169,110,0.02)"/></svg><div class="msl" id="mslLbl">Design Preview</div></div>
+                <div class="vb"><div><div class="vbl">Design options used</div><div class="vbd" id="vbDots"></div></div><div class="vbc" id="vbCount">0 / 5</div></div>
+                <div class="cc"><div class="ch2">Cost Breakdown</div><div id="costRows"></div><div class="ctot"><span class="ctl">Estimated Total</span><span class="cta2" id="costTotal">—</span></div></div>
+            </div>
+        </div>
+        <div class="cf"><div class="cf-in"><div class="cf-logo">SHIVEKAA INTERNATIONAL</div><div class="cf-links">
+            <a class="cfl" href="mailto:shivekaa.international@gmail.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>www.shivekaa.com</a>
+            <a class="cfl" href="https://wa.me/9099165606" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+            <a class="cfl" href="https://www.instagram.com/shivekaa__international/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            <a class="cfl" href="https://www.shivekaa.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Website</a>
+        </div></div></div>
+    </div>
+
+    <!-- SCREEN 10: COMPARE -->
+    <div class="screen" id="s-compare">
+        <div class="nb fade-in d1" onclick="goTo('s-dash')">← Dashboard</div>
+        <div class="sp fade-in d2">
+            <div class="eyebrow">Comparison View</div>
+            <h2 class="ptitle" style="font-size:clamp(24px,4vw,36px)">Compare <em>Options</em></h2>
+            <div style="overflow-x:auto"><table class="ctbl" id="cmpTable"></table></div>
+            <div style="margin-top:20px"><button class="btn-o" onclick="goTo('s-dash')">Back to Dashboard</button></div>
+        </div>
+        <div class="cf"><div class="cf-in"><div class="cf-logo">SHIVEKAA INTERNATIONAL</div><div class="cf-links">
+            <a class="cfl" href="mailto:shivekaa.international@gmail.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>www.shivekaa.com</a>
+            <a class="cfl" href="https://wa.me/9099165606" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+            <a class="cfl" href="https://www.instagram.com/shivekaa__international/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            <a class="cfl" href="https://www.shivekaa.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Website</a>
+        </div></div></div>
+    </div>
+
+    <!-- SCREEN 11: INQUIRY -->
+    <div class="screen" id="s-inquiry">
+        <div class="il">
+            <div>
+                <div class="nb fade-in d1" style="padding:0 0 13px" onclick="goTo('s-summary')">← Back</div>
+                <div class="eyebrow fade-in d1">Final Step</div>
+                <h2 class="ptitle fade-in d2">Let's Bring Your<br><em>Vision to Life</em></h2>
+                <p style="font-size:11px;color:var(--t3);line-height:1.75;margin-bottom:20px;max-width:360px" class="fade-in d3">Our consultants will reach out within 24 hours with a detailed proposal.</p>
+                <div class="fg fade-in d4">
+                    <div><label class="fl">Full Name</label><input class="fi" id="iq-name" type="text" style="border-color:rgba(201,169,110,.25);background:rgba(201,169,110,.03)"/><div class="fe" id="iq-err-name">Please enter your name</div></div>
+                    <div><label class="fl">Mobile Number</label><input class="fi" id="iq-phone" type="tel" style="border-color:rgba(201,169,110,.25);background:rgba(201,169,110,.03)"/><div class="fe" id="iq-err-phone">Please enter your number</div></div>
+                    <div><label class="fl">Email <span style="font-size:7px;color:var(--t3)">(optional)</span></label><input class="fi" id="iq-email" type="email" placeholder="you@example.com"/></div>
+                    <div><label class="fl">City <span style="font-size:7px;color:var(--t3)">(optional)</span></label><input class="fi" id="iq-city" placeholder="Mumbai, Delhi…"/></div>
+                    <div class="ff"><label class="fl">Address <span style="font-size:7px;color:var(--t3)">(optional)</span></label><input class="fi" id="iq-addr" placeholder="Flat / Street / Area / City"/></div>
+                    <div class="ff"><label class="fl">Budget Range</label><div class="bos" id="budgetOpts"><div class="bo sel" onclick="selBudget(this,'₹3–5L')">₹3–5L<div class="bos2">Essential</div></div><div class="bo" onclick="selBudget(this,'₹5–10L')">₹5–10L<div class="bos2">Premium</div></div><div class="bo" onclick="selBudget(this,'₹10–15L')">₹10–15L<div class="bos2">Luxury</div></div><div class="bo" onclick="selBudget(this,'₹15L+')">₹15L+<div class="bos2">Bespoke</div></div></div></div>
+                    <div class="ff"><label class="fl">Preferred Call Time <span style="font-size:7px;color:var(--t3)">(optional)</span></label><div class="tos"><div class="to" onclick="selTime(this)">Morning</div><div class="to" onclick="selTime(this)">Afternoon</div><div class="to sel" onclick="selTime(this)">Evening</div><div class="to" onclick="selTime(this)">Weekend</div></div></div>
+                    <div class="ff"><label class="fl">Notes <span style="font-size:7px;color:var(--t3)">(optional)</span></label><textarea class="fi ta" id="iq-notes" placeholder="Any requirements or questions…"></textarea></div>
+                </div>
+                <div class="conr fade-in d5"><div class="conb chk" id="conBox" onclick="togConsent()">✓</div><p class="cont">I agree to be contacted by HAVEN's design team. This is a free, <span>no-obligation consultation</span>.</p></div>
+                <div class="fade-in d6"><button class="bsub" id="subBtn" onclick="submitInquiry()">Request Quote &amp; Book Consultation</button><p class="bsn">Free consultation · No commitment · Response within 24 hrs</p></div>
+            </div>
+            <div class="fade-in d3">
+                <div style="font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,169,110,.4);margin-bottom:13px">Your Selection</div>
+                <div class="rcc"><div class="rch"><span class="rchl">Design Option</span><span class="rchs">Ready to Submit</span></div><div class="rcb"><div class="rcdn" id="iq-dname">—</div><div class="rcds" id="iq-dstyle">—</div><div class="rcr"><span class="rck">Package</span><span class="rcv" id="iq-pkg">—</span></div><div class="rcr"><span class="rck">Rooms</span><span class="rcv" id="iq-rooms">—</span></div><div class="rcr"><span class="rck">Materials</span><span class="rcv" id="iq-mats">—</span></div><div class="rcr"><span class="rck">Features</span><span class="rcv" id="iq-feats">—</span></div></div><div class="rcp"><span class="rcpl">Estimated Total</span><span class="rcpv" id="iq-total">—</span></div></div>
+                <div class="ns"><div class="nst">What happens next</div><div class="nsi"><div class="nsn">1</div><div class="nstx"><strong>Confirmation</strong> sent to your mobile</div></div><div class="nsi"><div class="nsn">2</div><div class="nstx"><strong>Designer assigned</strong> to your project</div></div><div class="nsi"><div class="nsn">3</div><div class="nstx"><strong>Call scheduled</strong> at your preferred time</div></div><div class="nsi"><div class="nsn">4</div><div class="nstx"><strong>Proposal shared</strong> within 48 hours</div></div></div>
+                <div class="tr2"><div class="tri"><div class="trn">500+</div><div class="trl">Homes</div></div><div class="tri"><div class="trn">24h</div><div class="trl">Response</div></div><div class="tri"><div class="trn">Free</div><div class="trl">Consult</div></div></div>
+            </div>
+        </div>
+        <div class="cf"><div class="cf-in"><div class="cf-logo">SHIVEKAA INTERNATIONAL</div><div class="cf-links">
+            <a class="cfl" href="mailto:shivekaa.international@gmail.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>www.shivekaa.com</a>
+            <a class="cfl" href="https://wa.me/9099165606" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+            <a class="cfl" href="https://www.instagram.com/shivekaa__international/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            <a class="cfl" href="https://www.shivekaa.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Website</a>
+        </div></div></div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="sov" id="succOverlay">
+        <div class="sor">✓</div>
+        <div class="soe">Inquiry Received</div>
+        <h2 class="sot">We'll Be in<br><em>Touch Soon</em></h2>
+        <p class="sos" id="succSub">Your consultation request has been received.</p>
+        <div class="sodd" id="succDets"></div>
+        <button class="btn-o" onclick="document.getElementById('succOverlay').classList.remove('show');goTo('s-dash')">View My Design Options →</button>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <!-- LINK TO JS (Order Matters!) -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
